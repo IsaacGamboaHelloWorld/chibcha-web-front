@@ -1,0 +1,34 @@
+@import '@/sass/mixins.sass'
+@import '@/sass/typography.sass'
+.container
+    width: 100%
+    min-height: 100vh !important
+    +flex()
+    &-left
+        padding: 30px
+        width: 50%
+        position: relative
+        +flex(flex,space-between,space-between,column)
+    &-right
+        background: black
+        max-width: 50%
+        min-width: 50%
+        min-height: 100vh
+        background-repeat: no-repeat
+        background-size: 50% 50%
+        background-position: center
+        background-image: url('/img/Escudo.svg')
+
+        .info
+            +flex(flex,flex-end,space-between,row)
+            height: 100%
+            padding: 24px
+            box-sizing: border-box
+
+            p
+                color: white
+            .container-images
+                .img-aval
+                    width: 109px
+                .img-super
+                    width: 14px
