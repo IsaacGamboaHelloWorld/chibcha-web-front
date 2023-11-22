@@ -31,6 +31,14 @@
       type="button"
       @action-button="()=>userLoginMutation.mutate({email:user,password:password})"
     />
+
+    <VelocityButton
+      classesName="btn btn-secundary m-t-18"
+      size="large"
+      text="Registrarse"
+      type="button"
+      @action-button="()=>currentStep = STEPS.stepRegister"
+    />
   </div>
 </template>
 
@@ -38,8 +46,9 @@
 import VelocityButton from "@/commons/velocity/atoms/velocityButton/VelocityButton.vue";
 import VelocityInput from "@/commons/velocity/atoms/velocityInput/VelocityInput.vue";
 import useLogin from "@/modules/login/composables/useLogin";
+import { STEPS } from "../../constants/steps";
 
-const { user, password ,userLoginMutation} = useLogin();
+const { user, password ,userLoginMutation,currentStep} = useLogin();
 </script>
 
 <style scoped lang="sass" src="./loginComponent.sass"></style>

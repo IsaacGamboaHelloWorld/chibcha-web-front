@@ -20,8 +20,8 @@ export const serviceItemsMock: IServiceItem[] = [
     text: 'Planes',
     icon: 'icon-icon-star',
     isActive: false,
-    navigateTo: routesName.mainInfo.path,
-    name: routesName.mainInfo.name,
+    navigateTo: routesName.plans.path,
+    name: routesName.plans.name,
   },
   {
     text: 'users',

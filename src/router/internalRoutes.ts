@@ -12,11 +12,11 @@ const internalRoutes: RouteRecordRaw = {
       name: routesName.createHosting.name,
       component: () => import('@/modules/create-hosting/view/CreateHostingView.vue'),
     },
-    // {
-    //   path: routesName.viewDomain.path,
-    //   name: routesName.viewDomain.name,
-    //   component: () => import('@/modules/movements/view/MovementsView.vue'),
-    // },
+    {
+      path: routesName.plans.path,
+      name: routesName.plans.name,
+      component: () => import('@/modules/planes/view/PlansView.vue'),
+    },
     // {
     //   path: routesName.mainInfo.path,
     //   name: routesName.mainInfo.name,

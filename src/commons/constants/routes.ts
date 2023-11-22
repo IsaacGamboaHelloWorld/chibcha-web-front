@@ -5,5 +5,6 @@ export const routesName = {
   viewHosting:{path:'hostings',name:'hostings'},
   mainInfo:{path:'plans-info',name:'plansInfo'},
   users:{path:'users',name:'users'},
+  plans:{path:'plans',name:'plans'},
   landing:{path:'/',name:'users'}
 };

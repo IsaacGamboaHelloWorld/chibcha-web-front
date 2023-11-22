@@ -12,6 +12,13 @@ const LoginComponent = defineAsyncComponent(
       '@/modules/login/components/loginComponent/loginComponent.vue'
     ),
 );
+
+const RegisterComponent = defineAsyncComponent(
+  () =>
+    import(
+      '@/modules/login/components/registerComponent/RegisterComponent.vue'
+    ),
+);
 const useLoginModule = () => {
   const authStore = useAuthStore();
   const {
@@ -23,6 +30,8 @@ const useLoginModule = () => {
   const componentStep = (): any => {
     const step: string = currentStep.value;
     if (step === STEPS.stepLogin) return LoginComponent;
+    if (step === STEPS.stepRegister) return RegisterComponent;
+
     // if (step === STEPS.stepChangePassword) return loginTokenComponent;
     // if (step === STEPS.stepRegister) return authComponent;
 
