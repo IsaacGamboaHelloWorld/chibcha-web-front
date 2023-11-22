@@ -5,10 +5,10 @@
     min-height: 100vh !important
     +flex()
     &-left
-        padding: 30px
         width: 50%
         position: relative
-        +flex(flex,space-between,space-between,column)
+        +flex(flex,center,center,column)
+       
     &-right
         background: black
         max-width: 50%
@@ -18,13 +18,11 @@
         background-size: 50% 50%
         background-position: center
         background-image: url('/img/Escudo.svg')
-
         .info
             +flex(flex,flex-end,space-between,row)
             height: 100%
             padding: 24px
             box-sizing: border-box
-
             p
                 color: white
             .container-images

@@ -68,12 +68,8 @@
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from 'pinia';
 import { computed, ref } from 'vue';
-import { useGlobalStore } from '@/stores/globalStore';
 
-const globalStore = useGlobalStore();
-const { currentGlobalStep, currentModule } = storeToRefs(globalStore);
 
 interface Props {
   type?: 'submit' | 'button' | 'reset';
@@ -117,14 +113,6 @@ const print = () => {
   window.print();
 };
 const clickEvent = () => {
-  (window as any).utag.link({
-    tealium_event: 'click',
-    event_category: currentModule.value + '-' + currentGlobalStep.value,
-    event_label: props.text,
-    token: !!localStorage.getItem('token')
-      ? !!localStorage.getItem('token')
-      : '',
-  });
   emits('actionButton');
   !!isActive.value ? (isActive.value = false) : (isActive.value = true);
 };

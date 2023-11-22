@@ -27,12 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue';
-import { useGlobalStore } from '@/stores/globalStore';
-import { storeToRefs } from 'pinia';
+import { computed } from 'vue';
 
-const globalStore = useGlobalStore();
-const { currentGlobalStep, currentModule } = storeToRefs(globalStore);
 
 interface Props {
   type: 'spinner' | 'custom';
@@ -50,19 +46,7 @@ const props = withDefaults(defineProps<Props>(), {
   width: '',
 });
 
-onMounted(() => {
-  if (props.type === 'custom') {
-    (window as any).utag.link({
-      tealium_event: 'modal',
-      page_path: currentGlobalStep.value,
-      event_category: currentModule.value + '-' + currentGlobalStep.value,
-      event_label: props.id,
-      token: !!localStorage.getItem('token')
-        ? !!localStorage.getItem('token')
-        : '',
-    });
-  }
-});
+
 
 const getAnimation = computed(() => {
   // if (companyName === 'bpop') return bpopAniation;

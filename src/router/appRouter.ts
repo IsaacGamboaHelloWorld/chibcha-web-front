@@ -3,8 +3,8 @@ import {
   createWebHashHistory,
 } from 'vue-router';
 
-// import internalRoutes from '@/modules/homeFront/router/internalRoutes';
 import { routesName } from '@/commons/constants/routes';
+import internalRoutes from './internalRoutes';
 
 const routes = [
   {
@@ -13,15 +13,14 @@ const routes = [
   },
   {
     path: routesName.auth.path,
-    name: 'login',
+    name:  routesName.auth.name,
     component: () => import('@/modules/login/view/loginView.vue'),
   },
   {
     path: '/:pathMatch(.*)*',
     redirect: routesName.auth.path,
   },
-  //portal-empresarial
-  // internalRoutes,
+  internalRoutes,
 ];
 
 const router = createRouter({

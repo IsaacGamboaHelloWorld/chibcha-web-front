@@ -1,0 +1,23 @@
+@import '@/sass/mixins.sass'
+
+.service
+    padding: 20px 0px
+    color: $bocc-color-primary-500
+    border-radius: 6px
+    &:hover,&.active
+        cursor: pointer
+        color: $bocc-color-primary-300
+        background: $bocc-color-primary-500
+        p i
+            color: $bocc-color-primary-300
+
+@include mobile
+    .service
+        width: 100%
+        box-sizing: border-box
+        +flex(flex,center,flex-star,row)
+        p
+            text-align: left
+            margin: 0
+        p i
+            margin-right: 18px

@@ -37,8 +37,6 @@
         :placeholder="props.placeHolder"
         v-model="value"
         @focus="isFocused = true"
-        :onpaste="cancelPasteAndCopy"
-        :oncopy="cancelPasteAndCopy"
         :disabled="isDisabled"
         :readonly="props.readonly"
       />
@@ -156,9 +154,7 @@ const processString = (value: string): string => {
   return result;
 };
 
-const cancelPasteAndCopy = (event: any) => {
-  if (globalStore.activePaste === 'false') event.preventDefault();
-};
+
 </script>
 
 <style scoped lang="sass" src="./VelocityInput.sass"></style>

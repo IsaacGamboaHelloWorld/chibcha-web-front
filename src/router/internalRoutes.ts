@@ -1,40 +1,34 @@
-// import type { RouteRecordRaw } from 'vue-router';
+import type { RouteRecordRaw } from 'vue-router';
 
-// import { routesName } from '@/commons/constants/routes';
+import { routesName } from '@/commons/constants/routes';
 
-// const internalRoutes: RouteRecordRaw = {
-//   path: routesName.Home.path,
-//   redirect: { name: routesName.myBank.name },
-//   component: () => import('@/modules/homeFront/template/HomeFrontTemplate.vue'),
-//   children: [
-//     {
-//       path: routesName.myBank.path,
-//       name: routesName.myBank.name,
-//       component: () => import('@/modules/myBank/view/MyBankView.vue'),
-//     },
-//     {
-//       path: routesName.movements.path,
-//       name: routesName.movements.name,
-//       component: () => import('@/modules/movements/view/MovementsView.vue'),
-//     },
-//     {
-//       path: routesName.transfers.path,
-//       name: routesName.transfers.name,
-//       component: () => import('@/modules/transfers/view/TransfersView.vue'),
-//     },
-//     {
-//       path: routesName.authorizations.path,
-//       name: routesName.authorizations.name,
-//       component: () =>
-//         import('@/modules/authorizations/view/AuthorizationsView.vue'),
-//     },
-//     {
-//       path: routesName.balanceByProduct.path,
-//       name: routesName.balanceByProduct.name,
-//       component: () =>
-//         import('@/modules/balanceByProduct/view/BalanceByProductView.vue'),
-//     },
-//   ],
-// };
+const internalRoutes: RouteRecordRaw = {
+  path: routesName.Home.path,
+//   redirect: { name: routesName.Home.name },
+  component: () => import('@/modules/home/view/HomeView.vue'),
+  children: [
+    {
+      path: routesName.createHosting.path,
+      name: routesName.createHosting.name,
+      component: () => import('@/modules/create-hosting/view/CreateHostingView.vue'),
+    },
+    // {
+    //   path: routesName.viewDomain.path,
+    //   name: routesName.viewDomain.name,
+    //   component: () => import('@/modules/movements/view/MovementsView.vue'),
+    // },
+    // {
+    //   path: routesName.mainInfo.path,
+    //   name: routesName.mainInfo.name,
+    //   component: () => import('@/modules/transfers/view/TransfersView.vue'),
+    // },
+    // {
+    //   path: routesName.users.path,
+    //   name: routesName.users.name,
+    //   component: () =>
+    //     import('@/modules/authorizations/view/AuthorizationsView.vue'),
+    // }
+  ],
+};
 
-// export default internalRoutes;
+export default internalRoutes;

@@ -2,12 +2,9 @@
 import { storeToRefs } from 'pinia';
 import VelocityModal from './commons/velocity/atoms/velocityModal/VelocityModal.vue';
 import { useGlobalStore } from './stores/globalStore';
-import { useRoute } from 'vue-router';
-import { watch } from 'vue';
 
 const globalStore = useGlobalStore();
-const { isMutating, isFetching, currentModule } = storeToRefs(globalStore);
-const route = useRoute();
+const { isMutating, isFetching } = storeToRefs(globalStore);
 
 // const changeFavicon = () => {
 //   const favicon: any = document.getElementById('favicon');
@@ -15,9 +12,7 @@ const route = useRoute();
 // };
 // changeFavicon();
 
-watch(route, () => {
-  currentModule.value = route.path;
-});
+
 </script>
 
 <template>
