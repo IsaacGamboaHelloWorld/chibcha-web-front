@@ -7,8 +7,17 @@ const api = axios.create({
   baseURL: `${url}${port}`,
 });
 
+api.defaults.headers.common['Authorization'] = localStorage.getItem('token') || '';
 
 
+api.interceptors.request.use(function (config) {
+  // @ts-ignore
+  config.headers={
+    ...config.headers,
+    Authorization:  localStorage.getItem('token') || ''
+  }
+  return config;
+});
 
 // api.interceptors.response.use(
 //   function (response) {

@@ -4,13 +4,13 @@ import { routesName } from '@/commons/constants/routes';
 
 const internalRoutes: RouteRecordRaw = {
   path: routesName.Home.path,
-//   redirect: { name: routesName.Home.name },
+  redirect: { name: routesName.viewHosting.name },
   component: () => import('@/modules/home/view/HomeView.vue'),
   children: [
     {
-      path: routesName.createHosting.path,
-      name: routesName.createHosting.name,
-      component: () => import('@/modules/create-hosting/view/CreateHostingView.vue'),
+      path: routesName.viewHosting.path,
+      name: routesName.viewHosting.name,
+      component: () => import('@/modules/hosting/view/HostingView.vue'),
     },
     {
       path: routesName.plans.path,
