@@ -39,10 +39,13 @@
           :key="item"
           @click="
             isActive = false;
-            value = item;
+            value =  !!props.property?item[property!]:item
+            emits('result', item);
           "
         >
-          <p class="vel-text-body-1">{{ item }}</p>
+          <p v-if="!!props.property" class="vel-text-body-1">{{ item[props.property!] }}</p>
+          <p v-else="!!props.property" class="vel-text-body-1">{{ item }}</p>
+
         </div>
       </div>
       <i
@@ -61,12 +64,12 @@
   </div>
 </template>
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref } from "vue";
 
 export interface Props {
-  list?: string[];
+  list: any[];
+  property?: string;
   label?: string;
-  modelValue: string;
   placeholder?: string;
   isWritable?: boolean;
   type?: string;
@@ -76,34 +79,26 @@ export interface Props {
 }
 
 interface IEmits {
-  (e: 'update:modelValue', value: string): void;
+  (e: "result", date: string[]): string;
 }
 const emits = defineEmits<IEmits>();
+const value = ref<string>("");
 
 const props = withDefaults(defineProps<Props>(), {
-  list: () => [''],
-  label: '',
-  placeholder: '',
+  list: () => [""],
+  label: "",
+  placeholder: "",
   isWritable: false,
-  type: 'custom',
-  labelIcon: '',
+  type: "custom",
+  labelIcon: "",
   hasError: false,
-  errorMessage: '',
+  errorMessage: "",
 });
 
 const isActive = ref<boolean>(false);
 
 const getIsActive = computed(() => {
   return isActive.value;
-});
-
-const value = computed<string>({
-  get() {
-    return props.modelValue;
-  },
-  set(value) {
-    emits('update:modelValue', value.toString());
-  },
 });
 </script>
 <style

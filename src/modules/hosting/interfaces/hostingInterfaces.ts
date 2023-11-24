@@ -1,8 +1,9 @@
 export interface INewHosting {
-    host_plan_id: string;
-    payment_plan_id: string;
-    operative_system_id: string;
+    host_plan_id: number | null;
+    payment_plan_id: number | null;
+    operative_system_id: number | null;
     name: string;
+    description:string
   }
 
 export interface IHosting {

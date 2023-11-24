@@ -40,10 +40,27 @@
     &-secundary
         background-color: $bocc-color-neutral-light-100
         border-radius: 6px
-        border: 1px solid $bocc-color-primary-500
-        color: $bocc-color-neutral-dark-300
+        border: 1px solid $bocc-color-neutral-light-100
+        color: black
         &:hover:enabled
-            background-color: $bocc-color-primary-200
+            background-color: $bocc-color-primary-400
+            color: $bocc-color-neutral-light-100
+            &:active:enabled
+                background-color: $bocc-color-primary-400
+                color: $bocc-color-neutral-light-100
+            &:disabled
+                background-color: none
+                color: $bocc-color-neutral-dark-200
+                cursor: inherit
+                border: 1px solid $bocc-color-neutral-dark-200
+    &-third
+        background-color: #ff2626
+        border-radius: 6px
+        border: 1px solid #ff2626
+        color: #ffffff
+        &:hover:enabled
+            background-color: white
+            color: #ff2626
             &:active:enabled
                 background-color: $bocc-color-primary-400
                 color: $bocc-color-neutral-light-100
@@ -69,18 +86,18 @@
     >i
         font-size: 15px
     &-primary
-            color: $bocc-color-primary-400
-            &:hover
-                color: $bocc-color-primary-300
+        color: $bocc-color-primary-400
+        &:hover
+            color: $bocc-color-primary-300
             &:active
                 color: $bocc-color-primary-500
             &:disabled
                 color: $bocc-color-neutral-dark-200
     &-secondary
-      
-            color: $bocc-color-primary-400
-            &:hover
-                color: $bocc-color-secondary-300
+
+        color: $bocc-color-primary-400
+        &:hover
+            color: $bocc-color-secondary-300
             &:active
                 color: $bocc-color-secondary-500
             &:disabled

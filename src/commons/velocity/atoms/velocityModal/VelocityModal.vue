@@ -13,7 +13,7 @@
     v-if="props.type === 'spinner'"
     :class="`modal-overlay spinner`"
   >
-    <div class="container_body active">
+    <div class="active">
       <div>
         <LottieAnimation
           :animationData="getAnimation"
@@ -28,6 +28,8 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import animation from '@/assets/loader.json';
+
 
 
 interface Props {
@@ -49,10 +51,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 
 const getAnimation = computed(() => {
-  // if (companyName === 'bpop') return bpopAniation;
-  // if (companyName === 'bavv') return bavvAniation;
-  // if (companyName === 'bocc') return boccAniation;
-  // return bbogAniation;
+  return animation;
 });
 </script>
 

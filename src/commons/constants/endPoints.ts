@@ -4,5 +4,6 @@ export const endPoints = {
   },
   hosting: {
     hosting: '/host',
+    delete: '/host/'
   },
 };

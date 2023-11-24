@@ -22,7 +22,7 @@
       </p>
     </div> -->
   <div>
-    <p class="vel-text-semibold vel-text-body-1 m-b-16">hola</p>
+    <p class="vel-text-semibold vel-text-body-1 m-b-16"></p>
     <component :is="componentStep()"></component>
   </div>
 </template>

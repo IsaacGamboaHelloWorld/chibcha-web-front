@@ -73,7 +73,6 @@
 </template>
 
 <script setup lang="ts">
-import { useGlobalStore } from '@/stores/globalStore';
 import { computed, ref, watch } from 'vue';
 import useFormattHelper from '@/commons/helpers/formatMoney';
 
@@ -121,7 +120,6 @@ const showPassword = ref<boolean>(false);
 const isFocused = ref<boolean>(false);
 
 const { formatCurrencyInput } = useFormattHelper();
-const globalStore = useGlobalStore();
 
 const emits = defineEmits<{
   (e: 'update:modelValue', value: string): void;
@@ -143,16 +141,10 @@ watch(value, (newValue) => {
   if (props.onlyNumbers) {
     value.value = newValue.replace(/\D/g, '');
   } else if (props.alpha) {
-    value.value = processString(newValue);
+    // value.value = processString(newValue);
   }
 });
 
-const processString = (value: string): string => {
-  const specialCharacters = globalStore.specialCharacters;
-  const uniqueCharsA = new Set([...specialCharacters]);
-  const result = [...value].filter((char) => !uniqueCharsA.has(char)).join('');
-  return result;
-};
 
 
 </script>

@@ -32,7 +32,7 @@
       @action-button="()=>userLoginMutation.mutate({email:user,password:password})"
     />
 
-    <VelocityButton
+    <velocity-button
       classesName="btn btn-secundary m-t-18"
       size="large"
       text="Registrarse"
