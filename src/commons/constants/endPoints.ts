@@ -9,5 +9,8 @@ export const endPoints = {
     price:'/price'
   },
   OS: "/operative-systems",
-  paymentsPlans: "/payment-plans"
+  paymentsPlans: "/payment-plans",
+  register: {
+    user: '/users',
+  }
 };
