@@ -6,4 +6,7 @@ export const endPoints = {
     hosting: '/host',
     delete: '/host/'
   },
+  register: {
+    user: '/users',
+  },
 };
