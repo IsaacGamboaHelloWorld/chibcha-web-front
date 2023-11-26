@@ -3,7 +3,6 @@
     <div class="card-header">
       <img :src="icon" alt="Icon" class="icon" />
       <h2>{{ planName }}</h2>
-      <p>{{ pricing }}</p>
     </div>
     <div class="card-body">
       <ul class="feature-list">
@@ -11,7 +10,13 @@
           &#10003  {{ feature }}
         </li>
       </ul>
-      
+      <br><hr><br>
+      <h2>Precios:</h2><br>
+      <ul class="feature-list">
+        <li v-for="(period, index) in payments" :key="index">
+          {{ period }}
+        </li>
+      </ul>
     </div>
     <div class="card-footer">
       <button class="btn-subscribe" @click="subscribe">Suscribrse</button>
@@ -23,8 +28,8 @@
 export default {
   props: {
     planName: String,
-    pricing: String,
     features: Array,
+    payments: Array,
     icon: String,
   },
   methods: {

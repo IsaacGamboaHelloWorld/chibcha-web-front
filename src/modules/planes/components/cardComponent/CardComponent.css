@@ -2,7 +2,6 @@
     --black-100: #1A1A1A;
     --grey-100: #F8F9FA; */
 
-
 .card {
     background-color: #fff;
     border-radius: 8px;
@@ -47,13 +46,5 @@
 }
 
 .feature-list li {
-    margin-bottom: 8px;
-}
-
-.check-mark {
-    width: 16px;
-    height: 16px;
-    background-color: #1A1A1A;
-    border-radius: 50%;
-    margin-right: 8px;
+    margin-bottom: 4px;
 }
