@@ -17,6 +17,7 @@
       <div class="card m-b-20 fade-in-left" v-for="hosting in getHostings" :key="hosting.id">
         <div class="card-header">
           <p class="vel-text-semibold">{{ hosting.name }}</p>
+          <p class="vel-text-semibold">{{ hosting.ip }}</p>
           <div class="container-buttons fade-in-left">
             <velocity-button
               icon="icon-icon-add-products"
@@ -62,10 +63,11 @@
               <p class="">{{ hosting.plan_name }}</p>
             </div>
             <div>
-              <p class="vel-text-semibold">Ip:</p>
-              <p class="">{{ hosting.plan_name }}</p>
+              <p class="vel-text-semibold">Descripcion:</p>
+              <p class="">{{ hosting.description }}</p>
             </div>
           </div>
+          <h1>que pasaaaa</h1>
         </div>
       </div>
     </div>

@@ -64,7 +64,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onBeforeMount, ref } from "vue";
 
 export interface Props {
   list: any[];
@@ -76,6 +76,7 @@ export interface Props {
   labelIcon?: string;
   hasError?: boolean;
   errorMessage?: string | any;
+  init?:any;
 }
 
 interface IEmits {
@@ -95,6 +96,11 @@ const props = withDefaults(defineProps<Props>(), {
   errorMessage: "",
 });
 
+onBeforeMount(()=>{
+  if(!!props.init){
+    value.value = props.init['property']
+  }
+})
 const isActive = ref<boolean>(false);
 
 const getIsActive = computed(() => {

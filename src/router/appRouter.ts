@@ -8,8 +8,8 @@ import internalRoutes from './internalRoutes';
 
 const routes = [
   {
-    path: '/',
-    redirect: routesName.auth.path,
+    path: '',
+    redirect: routesName.landing.path,
   },
   {
     path: routesName.auth.path,
@@ -17,8 +17,13 @@ const routes = [
     component: () => import('@/modules/login/view/loginView.vue'),
   },
   {
+    path: routesName.landing.path,
+    name:  routesName.landing.name,
+    component: () => import('@/modules/landing/view/landing.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
-    redirect: routesName.auth.path,
+    redirect: routesName.landing.path,
   },
   internalRoutes,
 ];
@@ -28,27 +33,17 @@ const router = createRouter({
   routes,
 });
 
-// router.beforeEach((to, from, next) => {
-//   if (!localStorage.getItem('token') && to.fullPath !== routesName.auth.path) {
-//     next({ name: 'login' });
-//   } else if (
-//     !!localStorage.getItem('token') &&
-//     !!localStorage.getItem('permitions') &&
-//     to.fullPath === routesName.auth.path
-//   ) {
-//     next(routesName.Home.path);
-//   } else {
-//     next();
-//   }
-// });
+router.beforeEach((to, from, next) => {
+  if (!localStorage.getItem('token') &&  to.fullPath !== routesName.landing.path && to.fullPath !== routesName.auth.path) {
+    next({ name: routesName.landing.name });
+  } else if (
+    !!localStorage.getItem('token') &&
+    to.fullPath === routesName.auth.path
+  ) {
+    next(routesName.Home.path);
+  } else {
+    next();
+  }
+});
 
-// router.afterEach(() => {
-//   (window as any).utag.track({
-//     tealium_event: 'page_view',
-//     page_path: window.location.pathname,
-//     token: !!localStorage.getItem('token')
-//       ? !!localStorage.getItem('token')
-//       : '',
-//   });
-// });
 export default router;

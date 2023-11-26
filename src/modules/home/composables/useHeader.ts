@@ -1,6 +1,5 @@
-import { ref } from 'vue';
+import { onBeforeMount, onBeforeUnmount, ref } from 'vue';
 
-import useLogout from '@/commons/helpers/useLogout';
 import { useRouter, type Router } from 'vue-router';
 import { routesName } from '@/commons/constants/routes';
 import { useHomeStore } from '../store/useAuthStore';
@@ -16,14 +15,21 @@ const toggleProfileInfo = (): void => {
 };
 
 const useHeader = () => {
-  const { fetchLogout } = useLogout();
   const homeStore = useHomeStore(); 
   const globalStore = useGlobalStore();
-  const {getUserInfo} = storeToRefs(globalStore)
+  const {getUserInfo,} = storeToRefs(globalStore)
    const router: Router = useRouter();
 
+   onBeforeMount(()=>{
+    const userInfo = JSON.parse(
+      localStorage.getItem('userInfo')!
+    )
+    globalStore.setUserInfo(userInfo)
+   })
+   
   const logout = (): void => {
-    fetchLogout();
+    localStorage.clear()
+    location.reload()
   };
 
   const navigateHome = (): void => {

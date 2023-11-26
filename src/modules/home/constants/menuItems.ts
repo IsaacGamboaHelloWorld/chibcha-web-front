@@ -9,13 +9,6 @@ export const serviceItemsMock: IServiceItem[] = [
     navigateTo: routesName.viewHosting.path,
     name: routesName.viewHosting.name,
   },
-  // {
-  //   text: 'Nuevo Hosting',
-  //   icon: 'icon-icon-upload',
-  //   isActive: false,
-  //   navigateTo: routesName.createHosting.path,
-  //   name: routesName.createHosting.name,
-  // },
   {
     text: 'Planes',
     icon: 'icon-icon-star',
@@ -23,6 +16,10 @@ export const serviceItemsMock: IServiceItem[] = [
     navigateTo: routesName.plans.path,
     name: routesName.plans.name,
   },
+
+];
+
+export const serviceItemsMockAdmin: IServiceItem[] = [
   {
     text: 'users',
     icon: 'icon-icon-person',
@@ -30,5 +27,4 @@ export const serviceItemsMock: IServiceItem[] = [
     navigateTo: routesName.users.path,
     name: routesName.users.name,
   },
-
 ];

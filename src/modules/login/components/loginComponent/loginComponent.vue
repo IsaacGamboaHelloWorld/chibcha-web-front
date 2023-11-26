@@ -22,7 +22,7 @@
       label="Ingrese su Contraseña"
       placeHolder="password"
       v-model="password"
-  
+      type="password"
     />
     <VelocityButton
       classesName="btn btn-primary"

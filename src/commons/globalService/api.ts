@@ -19,21 +19,15 @@ api.interceptors.request.use(function (config) {
   return config;
 });
 
-// api.interceptors.response.use(
-//   function (response) {
-//     return response;
-//   },
-//   function (error) {
-//     if (
-//       error.response.data.status === '401' &&
-//       error.response.data.message ===
-//         'Full authentication is required to access this resource'
-//     ) {
-//       localStorage.clear();
-//       location.reload();
-//     }
-
-//     return Promise.reject(error);
-//   },
-// );
+api.interceptors.response.use(function (response) {
+  return response;
+}, function (error) {
+  if(error.response.request.status == 403){
+    console.log(error)
+    localStorage.clear()
+    location.reload()
+  }
+ 
+  return Promise.reject(error);
+});
 export default api;

@@ -17,11 +17,11 @@ const internalRoutes: RouteRecordRaw = {
       name: routesName.plans.name,
       component: () => import('@/modules/planes/view/PlansView.vue'),
     },
-    // {
-    //   path: routesName.mainInfo.path,
-    //   name: routesName.mainInfo.name,
-    //   component: () => import('@/modules/transfers/view/TransfersView.vue'),
-    // },
+    {
+      path: routesName.users.path,
+      name: routesName.users.name,
+      component: () => import('@/modules/users/view/UsersView.vue'),
+    },
     // {
     //   path: routesName.users.path,
     //   name: routesName.users.name,

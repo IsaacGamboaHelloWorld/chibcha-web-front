@@ -29,10 +29,17 @@ const useLogin = () => {
 
   const userLoginMutation = useMutation([''], userLogin, {
     onSuccess: (data) => {
-     localStorage.setItem('token',data.token)
-     globalStore.setUserInfo(data)
-     router.push(routesName.Home.path).then(() => {
-    });
+      localStorage.setItem('token', data.token)
+      localStorage.setItem('userInfo', JSON.stringify(data.infoUser));
+      localStorage.setItem('role', JSON.stringify(data.infoUser.role_id));
+      globalStore.setUserInfo(data)
+
+      if (data.infoUser.role_id === 1) {
+        router.push(routesName.Home.path)
+      } else {
+        router.push({name: routesName.users.name})
+        // router.push(routesName.Home.path+'/'+routesName.users.name)
+      }
     },
     onError: (error) => {
       console.assert('Ocurrio un problema')
