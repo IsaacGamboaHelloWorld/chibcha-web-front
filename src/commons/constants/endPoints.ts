@@ -4,6 +4,10 @@ export const endPoints = {
   },
   hosting: {
     hosting: '/host',
-    delete: '/host/'
+    delete: '/host/',
+    parameters: '/host/parameters',
+    price:'/price'
   },
+  OS: "/operative-systems",
+  paymentsPlans: "/payment-plans"
 };

@@ -96,6 +96,7 @@ export interface Props {
   readonly?: boolean;
   eyeIconIsHidden?: boolean;
   icon?: string;
+  onlyLetras?:boolean;
 }
 const props = withDefaults(defineProps<Props>(), {
   hasError: false,
@@ -107,6 +108,7 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'text',
   maxlength: 100,
   onlyNumbers: false,
+  onlyLetras:false,
   isDisabled: false,
   alpha: false,
   politics: false,
@@ -142,6 +144,8 @@ watch(value, (newValue) => {
     value.value = newValue.replace(/\D/g, '');
   } else if (props.alpha) {
     // value.value = processString(newValue);
+  } else if(props.onlyLetras){
+    value.value = newValue.replace(/[^a-zA-Z]/g, '');
   }
 });
 

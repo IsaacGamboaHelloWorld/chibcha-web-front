@@ -79,7 +79,7 @@ export interface Props {
 }
 
 interface IEmits {
-  (e: "result", date: string[]): string;
+  (e: "result", item:any): string;
 }
 const emits = defineEmits<IEmits>();
 const value = ref<string>("");

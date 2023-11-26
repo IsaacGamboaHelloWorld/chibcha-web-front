@@ -29,6 +29,15 @@ const useFormattHelper = () => {
     return currencySimbol + result + '.00';
   };
 
+  const addCurrencyDotSimple = (data: string, currencySimbol?: string): string => {
+    const number = parseInt(data);
+    if (isNaN(number)) {
+        return "Valor inválido";
+    }
+    return number.toLocaleString('es-CO');
+
+  };
+
   function formatCurrencyInput(strNum: string) {
     const cents = strNum.slice(-2);
     const intPart = strNum.slice(0, -2);
@@ -73,6 +82,7 @@ const useFormattHelper = () => {
     formatCurrencyInput,
     separarUltimosDosCaracteres,
     formateDate,
+    addCurrencyDotSimple
   };
 };
 

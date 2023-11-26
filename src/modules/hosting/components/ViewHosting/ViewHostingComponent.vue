@@ -1,7 +1,7 @@
 <template>
   <velocity-modal v-if="isLoading" type="spinner" />
-  <div class="container_hostings">
-    <div class="title m-b-20">
+  <div v-else class="container_hostings">
+    <div class="title m-b-20 fade-in-down">
       <h2 class="vel-text-semibold">Hostings</h2>
       <velocity-button
         icon="icon-icon-more"
@@ -12,12 +12,12 @@
         @action-button="() => (currentStep = STEPS.stepCreateHosting)"
       />
     </div>
-    <hr class="m-b-20">
+    <hr class="m-b-20" />
     <div class="container_cards">
-      <div class="card m-b-20" v-for="hosting in getHostings" :key="hosting.id">
+      <div class="card m-b-20 fade-in-left" v-for="hosting in getHostings" :key="hosting.id">
         <div class="card-header">
           <p class="vel-text-semibold">{{ hosting.name }}</p>
-          <div class="container-buttons">
+          <div class="container-buttons fade-in-left">
             <velocity-button
               icon="icon-icon-add-products"
               classesName="btn btn-secundary"
@@ -78,5 +78,7 @@ import VelocityButton from "@/commons/velocity/atoms/velocityButton/VelocityButt
 import VelocityModal from "@/commons/velocity/atoms/velocityModal/VelocityModal.vue";
 import { STEPS } from "../../constants/steps";
 
-const { getHostings,currentStep, deleteHostingMutation,isLoading } = useViewHosting();
+const { getHostings, currentStep, deleteHostingMutation, isLoading } =
+  useViewHosting();
+
 </script>

@@ -27,7 +27,7 @@ const useHostingModule = () =>{
         if (step === STEPS.stepViewHostings) return ViewHostingComponent;
         return null;
       };
-    return {componentStep}
+    return {componentStep,currentStep}
 }
 
 export default useHostingModule
