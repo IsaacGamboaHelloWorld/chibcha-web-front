@@ -36,7 +36,7 @@
       placeHolder="password" 
       v-model="password" 
     />
-
+    
     <VelocityDropdown 
       class="m-b-40" 
       :list = typeUserD
@@ -47,7 +47,7 @@
       type = "custom" 
       v-model="typeUser" 
     />
-    
+
     <div v-if="typeUser=='Cliente'">
       <VelocityInput 
         class="m-b-40" 
