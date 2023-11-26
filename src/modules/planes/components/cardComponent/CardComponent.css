@@ -1,20 +1,59 @@
-/* Colores */
-:root {
-    /*amarillo*/
-    --yellow-100: #FFDE40;
+/*  --yellow-100: #E6B54A;
     --black-100: #1A1A1A;
-    --grey-100: #F8F9FA;
+    --grey-100: #F8F9FA; */
+
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
 }
 
-.contenedor-tarjeta {
-    vertical-align: top;
-    width: 400px;
-    height: 500px;
-    border-radius: 32px;
-    /* float: left; */
-    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+.card-header {
+    background-color: #1A1A1A;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
 }
 
-.titulo{
-    background: red;
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-footer {
+    text-align: center;
+    padding: 15px;
+}
+
+.btn-subscribe {
+    background-color: #E6B54A;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.img {
+    fill: #E6B54A;
+}
+
+.icon {
+    height: 90px;
+}
+
+.feature-list li {
+    margin-bottom: 8px;
+}
+
+.check-mark {
+    width: 16px;
+    height: 16px;
+    background-color: #1A1A1A;
+    border-radius: 50%;
+    margin-right: 8px;
 }
