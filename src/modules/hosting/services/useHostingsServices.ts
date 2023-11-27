@@ -4,9 +4,9 @@ import { IDomainRequest, IHosting, IHostingParameters, INewHosting } from "../in
 
 const useHostingServices = () => {
   const getHosting = async (): Promise<IHosting[]> => {
-    await new Promise(resolve => {
-      setTimeout(() => resolve(true), 1000 * 3)
-    })
+    // await new Promise(resolve => {
+    //   setTimeout(() => resolve(true), 1000 * 3)
+    // })
     const { data } = await api.get<IHosting[]>(endPoints.hosting.hosting)
     return data;
   };
@@ -59,9 +59,9 @@ const useHostingServices = () => {
 
   const deleteHostin = async (id: number): Promise<any> => {
 
-    await new Promise(resolve => {
-      setTimeout(() => resolve(true), 1000 * 3)
-    })
+    // await new Promise(resolve => {
+    //   setTimeout(() => resolve(true), 1000 * 3)
+    // })
     const { data } = await api.delete<any>(endPoints.hosting.delete + id);
     return data;
   };
