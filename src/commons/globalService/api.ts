@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const port: string = '3000';
-const url: string = 'http://localhost:';
+const port: string = '';
+const url: string = 'https://chibchawebholamundo.onrender.com';
 
 const api = axios.create({
   baseURL: `${url}${port}`,
