@@ -29,7 +29,7 @@ const useFormattHelper = () => {
     return currencySimbol + result + '.00';
   };
 
-  const addCurrencyDotSimple = (data: string, currencySimbol?: string): string => {
+  const addCurrencyDotSimple = (data: string): string => {
     const number = parseInt(data);
     if (isNaN(number)) {
         return "Valor inválido";

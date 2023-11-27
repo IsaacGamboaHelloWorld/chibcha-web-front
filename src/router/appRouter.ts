@@ -34,6 +34,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  console.log(from)
   if (!localStorage.getItem('token') &&  to.fullPath !== routesName.landing.path && to.fullPath !== routesName.auth.path) {
     next({ name: routesName.landing.name });
   } else if (

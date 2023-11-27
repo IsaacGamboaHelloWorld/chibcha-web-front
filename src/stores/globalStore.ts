@@ -1,7 +1,7 @@
 import { ILogin } from '@/modules/login/interfaces/loginInterfaces';
 import { useIsFetching, useIsMutating } from '@tanstack/vue-query';
 import { defineStore } from 'pinia';
-import { computed, onBeforeMount, onMounted, ref } from 'vue';
+import { computed, ref } from 'vue';
 
 export const useGlobalStore = defineStore('GlobalStore', () => {
 
