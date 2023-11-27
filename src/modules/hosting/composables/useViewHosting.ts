@@ -1,9 +1,15 @@
 import { storeToRefs } from "pinia";
+import { ref } from "vue";
 import { useHostingStore } from "../store/useHostinStore";
 import { useMutation, useQuery } from "@tanstack/vue-query";
+
 import useHostingServices from "../services/useHostingsServices";
 import { IHosting } from "../interfaces/hostingInterfaces";
 import { STEPS } from "../constants/steps";
+
+const showModalDomain = ref<boolean>(false)
+const showModalTicket = ref<boolean>(false)
+
 
 const useViewHosting = () => {
 
@@ -41,7 +47,7 @@ const useViewHosting = () => {
     }
 
 
-    return { currentStep, getHostings, deleteHostingMutation, isLoading, editHosting }
+    return { currentStep, getHostings, deleteHostingMutation, isLoading, editHosting,showModalDomain,showModalTicket }
 }
 
 export default useViewHosting

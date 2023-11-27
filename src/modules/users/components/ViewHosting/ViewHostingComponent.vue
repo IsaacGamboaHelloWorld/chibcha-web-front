@@ -15,20 +15,17 @@
     <hr class="m-b-20" />
     <div class="container_cards">
       <div class="card m-b-20 fade-in-left" v-for="hosting in getHostings" :key="hosting.id">
-        <h1>{{ hosting }}</h1>
-
         <div class="card-header">
           <p class="vel-text-semibold">{{ hosting.name }}</p>
-          <p class="vel-text-semibold">{{ hosting.ip }}</p>
           <div class="container-buttons fade-in-left">
-            <!-- <velocity-button
+            <velocity-button
               icon="icon-icon-add-products"
               classesName="btn btn-secundary"
               size="small"
               text="Crear ticket de soporte"
               type="button"
               @action-button="() => (currentStep = STEPS.stepRegister)"
-            /> -->
+            />
             <velocity-button
               icon="icon-icon-edit"
               classesName="btn btn-secundary"
@@ -65,8 +62,8 @@
               <p class="">{{ hosting.plan_name }}</p>
             </div>
             <div>
-              <p class="vel-text-semibold">Descripcion:</p>
-              <p class="">{{ hosting.description }}</p>
+              <p class="vel-text-semibold">Ip:</p>
+              <p class="">{{ hosting.plan_name }}</p>
             </div>
           </div>
         </div>

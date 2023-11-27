@@ -17,7 +17,7 @@ const toggleProfileInfo = (): void => {
 const useHeader = () => {
   const homeStore = useHomeStore(); 
   const globalStore = useGlobalStore();
-  const {getUserInfo,} = storeToRefs(globalStore)
+  const {getUserInfo} = storeToRefs(globalStore)
    const router: Router = useRouter();
 
    onBeforeMount(()=>{

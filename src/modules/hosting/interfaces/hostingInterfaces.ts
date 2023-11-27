@@ -14,6 +14,17 @@ export interface ICreditCard {
   number: string;
 }
 
+export interface IDomain {
+  id: number;
+  host_id: number;
+  domain_distributor_id: number;
+  domain: string;
+  created_at: string;
+  updated_at: string | null;
+  state: string;
+  host_name: string;
+}
+
 
 export interface IHosting {
   id: number;
@@ -27,6 +38,9 @@ export interface IHosting {
   plan_name: string;
   payment_name: string;
   os_name: string;
+  ip:string;
+  description:string;
+  domains:IDomain[]
 }
 
 export interface IOperativeSystem {

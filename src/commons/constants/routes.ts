@@ -1,5 +1,6 @@
 export const routesName = {
   auth: { path: '/login', name: 'login' },
+  request: { path: '/solicitudes', name: 'solicitudes' },
   Home: { path: '/home', name: 'home' },
   viewHosting:{path:'hostings',name:'hostings'},
   mainInfo:{path:'plans-info',name:'plansInfo'},

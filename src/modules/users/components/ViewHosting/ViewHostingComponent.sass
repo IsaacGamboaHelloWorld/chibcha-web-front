@@ -28,13 +28,11 @@
                 width: 100%
                 padding: 20px
                 box-sizing: border-box
-                .body-info
-                    +flex(flex,center,space-between,row)
+                +flex(flex,center,center,row)
+                >div
                     >div
+                        +flex(flex,center,flex-start,row)
                         margin-bottom: 10px
-                        >div
-                            gap: 10px
-                            +flex(flex,center,flex-start,row)
 
 .list-enter-active,.list-leave-active
     transition: all 3s ease

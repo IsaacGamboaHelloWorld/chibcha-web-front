@@ -16,6 +16,13 @@ export const serviceItemsMock: IServiceItem[] = [
     navigateTo: routesName.plans.path,
     name: routesName.plans.name,
   },
+  {
+    text: 'Mis Solicitudes',
+    icon: 'icon-icon-shopping-bag',
+    isActive: false,
+    navigateTo: routesName.request.path,
+    name: routesName.request.name,
+  },
 
 ];
 

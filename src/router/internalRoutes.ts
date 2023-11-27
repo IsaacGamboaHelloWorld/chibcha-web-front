@@ -22,6 +22,11 @@ const internalRoutes: RouteRecordRaw = {
       name: routesName.users.name,
       component: () => import('@/modules/users/view/UsersView.vue'),
     },
+    {
+      path: routesName.request.path,
+      name: routesName.request.name,
+      component: () => import('@/modules/solicitudes/view/RequestView.vue'),
+    },
     // {
     //   path: routesName.users.path,
     //   name: routesName.users.name,

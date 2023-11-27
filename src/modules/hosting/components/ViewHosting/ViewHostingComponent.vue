@@ -1,5 +1,18 @@
 <template>
+  <velocity-modal type="custom" v-if="showModalTicket"> 
+    <template #component>
+      <modal-ticket-component></modal-ticket-component>
+    </template>
+  </velocity-modal>>
+
+  <velocity-modal type="custom"  v-if="showModalDomain"> 
+    <template #component>
+      <modal-domain-component></modal-domain-component>
+    </template>
+  </velocity-modal>>
+
   <velocity-modal v-if="isLoading" type="spinner" />
+
   <div v-else class="container_hostings">
     <div class="title m-b-20 fade-in-down">
       <h2 class="vel-text-semibold">Hostings</h2>
@@ -14,9 +27,15 @@
     </div>
     <hr class="m-b-20" />
     <div class="container_cards">
-      <div class="card m-b-20 fade-in-left" v-for="hosting in getHostings" :key="hosting.id">
+      <div
+        class="card m-b-20 fade-in-left"
+        v-for="hosting in getHostings"
+        :key="hosting.id"
+      >
         <div class="card-header">
-          <p class="vel-text-semibold">{{ hosting.name }}</p>
+          <p class="vel-text-semibold">
+            {{ hosting.name }} - <span> {{ hosting.ip }}</span>
+          </p>
           <div class="container-buttons fade-in-left">
             <velocity-button
               icon="icon-icon-add-products"
@@ -24,7 +43,15 @@
               size="small"
               text="Crear ticket de soporte"
               type="button"
-              @action-button="() => (currentStep = STEPS.stepRegister)"
+              @action-button="() => {showModalTicket = true}"
+            />
+            <velocity-button
+              icon="icon-icon-vibot"
+              classesName="btn btn-secundary"
+              size="small"
+              text="Solicitar Dominio"
+              type="button"
+              @action-button="() => {showModalDomain = true}"
             />
             <velocity-button
               icon="icon-icon-edit"
@@ -46,24 +73,37 @@
         </div>
         <div class="card-line"></div>
         <div class="card-body">
-          <div class="w-50">
-            <div>
-              <p class="vel-text-semibold">Chibcha Plan:</p>
-              <p>{{ hosting.plan_name }}</p>
+          <div class="body-info">
+            <div class="w-50">
+              <div>
+                <p class="vel-text-semibold">Chibcha Plan:</p>
+                <p>{{ hosting.plan_name }}</p>
+              </div>
+              <div>
+                <p class="vel-text-semibold">Sistema operativo:</p>
+                <p class="">{{ hosting.os_name }}</p>
+              </div>
             </div>
-            <div>
-              <p class="vel-text-semibold">Sistema operativo:</p>
-              <p class="">{{ hosting.plan_name }}</p>
+            <div class="w-50">
+              <div>
+                <p class="vel-text-semibold">Modo de pago:</p>
+                <p class="">{{ hosting.payment_name }}</p>
+              </div>
+              <div>
+                <p class="vel-text-semibold">Descripcion:</p>
+                <p class="">{{ hosting.description }}</p>
+              </div>
             </div>
           </div>
-          <div class="w-50">
+          <hr v-if="hosting.domains.length>0" class="m-t-8 m-b-8">
+          <div v-if="hosting.domains.length>0">
+            <p class="vel-text-semibold vel-text-subtitle">
+              Dominios
+            </p>
             <div>
-              <p class="vel-text-semibold">Modo de pago:</p>
-              <p class="">{{ hosting.plan_name }}</p>
-            </div>
-            <div>
-              <p class="vel-text-semibold">Ip:</p>
-              <p class="">{{ hosting.plan_name }}</p>
+              <p v-for="domain in hosting.domains" :key="domain.id">
+              {{ domain.domain }}
+              </p>
             </div>
           </div>
         </div>
@@ -76,9 +116,18 @@
 import useViewHosting from "../../composables/useViewHosting";
 import VelocityButton from "@/commons/velocity/atoms/velocityButton/VelocityButton.vue";
 import VelocityModal from "@/commons/velocity/atoms/velocityModal/VelocityModal.vue";
+import ModalDomainComponent from "../modalDomain/ModalDomainComponent.vue";
+import ModalTicketComponent from "../modalTicket/ModalTicketComponent.vue";
+
 import { STEPS } from "../../constants/steps";
 
-const { getHostings, currentStep, deleteHostingMutation, isLoading,editHosting } =
-  useViewHosting();
-
+const {
+  getHostings,
+  currentStep,
+  deleteHostingMutation,
+  isLoading,
+  editHosting,
+  showModalDomain,
+  showModalTicket
+} = useViewHosting();
 </script>
