@@ -14,6 +14,10 @@ const toggleProfileInfo = (): void => {
     profileInfoIsVisible.value = !profileInfoIsVisible.value;
 };
 
+const userInfo = JSON.parse(
+  localStorage.getItem('userInfo')!
+)
+
 const useHeader = () => {
   const homeStore = useHomeStore(); 
   const globalStore = useGlobalStore();
@@ -24,6 +28,7 @@ const useHeader = () => {
     const userInfo = JSON.parse(
       localStorage.getItem('userInfo')!
     )
+    console.log(userInfo)
     globalStore.setUserInfo(userInfo)
    })
    
@@ -41,7 +46,8 @@ const useHeader = () => {
     toggleProfileInfo,
     logout,
     profileInfoIsVisible,
-    getUserInfo
+    getUserInfo,
+    userInfo
   };
 };
 export default useHeader;

@@ -3,14 +3,14 @@
     <div class="container-info">
       <p class="text-label-name vel-text-subtitle vel-text-semibold">
         Hola 
-        {{  getUserInfo?.name ||'' }}
-        {{  getUserInfo?.last_name ||'' }}
+        {{  userInfo.name ||'' }}
+        {{  userInfo.last_name ||'' }}
       </p>
       <div class="info-label">
         <p
           class="text-label-company vel-text-body-2 vel-text-semibold color-neutral"
         >
-        {{  getUserInfo?.email ||'' }}
+        {{  userInfo?.email ||'' }}
         </p>
         <p class="m-l-4 text-label-company-name vel-text-body-2 color-neutral">
           
@@ -89,7 +89,7 @@ const {
   toggleProfileInfo,
   logout,
   profileInfoIsVisible,
-  getUserInfo
+  userInfo
 } = useHeader();
 
 const emit = defineEmits<{

@@ -27,6 +27,21 @@ const internalRoutes: RouteRecordRaw = {
       name: routesName.request.name,
       component: () => import('@/modules/solicitudes/view/RequestView.vue'),
     },
+    {
+      path: routesName.hositngAdmin.path,
+      name: routesName.hositngAdmin.name,
+      component: () => import('@/modules/HostingAdmin/view/HostingAdminView.vue'),
+    },
+    {
+      path: routesName.TicketsAdmin.path,
+      name: routesName.TicketsAdmin.name,
+      component: () => import('@/modules/tickets/view/TicketsAdminView.vue'),
+    },
+    {
+      path: routesName.domainsAdmin.path,
+      name: routesName.domainsAdmin.name,
+      component: () => import('@/modules/tickets - copia/view/DomainsAdminView.vue'),
+    },
     // {
     //   path: routesName.users.path,
     //   name: routesName.users.name,

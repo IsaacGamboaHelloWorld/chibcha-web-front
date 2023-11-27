@@ -10,31 +10,32 @@
     </p>
     <VelocityInput 
       class="m-b-40" 
-      id="user" 
+      id="name" 
       label="Ingrese su nombre" 
       placeHolder="Nombre" 
       v-model="name" 
     />
     <VelocityInput 
       class="m-b-40" 
-      id="user" 
+      id="last_name" 
       label="Ingrese su apellido" 
       placeHolder="Apellido" 
       v-model="last_name" 
     />
     <VelocityInput 
       class="m-b-40" 
-      id="user" 
+      id="email_Register" 
       label="Ingrese su correo electronico" 
       placeHolder="Email" 
       v-model="email" 
     />
     <VelocityInput 
       class="m-b-40" 
-      id="user" 
+      id="password_register" 
       label="Ingrese su Contraseña" 
       placeHolder="password" 
-      v-model="password" 
+      v-model="password"
+      type="password" 
     />
     
     <VelocityDropdown 
@@ -45,19 +46,19 @@
       placeholder ="Seleccione su tipo de usuario"
       :isWritable = false
       type = "custom" 
-      v-model="typeUser" 
+      @result="($event)=>{typeUser=$event}" 
     />
 
     <div v-if="typeUser=='Cliente'">
       <VelocityInput 
         class="m-b-40" 
-        id="user" 
+        id="corporación" 
         label="Nombre de la corporación" 
         placeHolder="corporación" 
         v-model="corporation" 
       /><VelocityInput 
         class="m-b-40" 
-        id="user" 
+        id="dirección" 
         label="Dirección de la corporación" 
         placeHolder="dirección" 
         v-model="address" 
@@ -66,7 +67,7 @@
     <div v-if="typeUser=='Empleado'">
       <VelocityInput 
         class="m-b-40" 
-        id="user" 
+        id="Título" 
         label="Título profesional" 
         placeHolder="Título" 
         v-model="jobTitle" 
@@ -77,9 +78,12 @@
       size="large" 
       text="Registrarse" 
       type="button" 
-      @action-button="()=>userRegisterMutation.mutate({role_id: 1,name: name, last_name:last_name, email:email, password:password,type: typeUser, job_title:jobTitle,corporation: corporation,address: address})"
+      :disabled="isDiabled"
+      @action-button="()=>sendForm()"
     />
+  
   </div>
+
 </template>
 
 <script setup lang="ts">
@@ -88,7 +92,7 @@ import VelocityInput from "@/commons/velocity/atoms/velocityInput/VelocityInput.
 import useRegister from '../../composables/useRegister';
 import VelocityDropdown from "@/commons/velocity/atoms/velocityDropdown/VelocityDropdown.vue";
 
-const { userRegisterMutation,name, last_name, email, typeUser, password, typeUserD, jobTitle, corporation, address } = useRegister();
+const { name, last_name, email, typeUser, password, typeUserD, jobTitle, corporation, address,isDiabled,sendForm } = useRegister();
 </script>
 
 <style scoped lang="sass" src="./RegisterComponent.sass"></style>

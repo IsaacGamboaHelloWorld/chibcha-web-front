@@ -1,24 +1,29 @@
 import { useRouter, type Router, useRoute } from 'vue-router';
-import { computed, watch } from 'vue';
+import { computed, onBeforeMount, onMounted, ref, watch } from 'vue';
 
 
 import { serviceItemsMock, serviceItemsMockAdmin } from '../constants/menuItems';
 import { IServiceItem } from '../interfaces/homeInterfaces';
+const userInfoAux = JSON.parse(
+  localStorage.getItem('userInfo')!
+)
+const init = userInfoAux.role_id === 1 ? serviceItemsMock : serviceItemsMockAdmin
 
-const serviceItems = computed<IServiceItem[]>(() => {
-  const userInfo = JSON.parse(
-    localStorage.getItem('userInfo')!
-  )
-  if (userInfo.role_id === 1) {
-    return serviceItemsMock
-  } else {
-    return serviceItemsMockAdmin
-  }
-})
-
+const serviceItems = ref<IServiceItem[]>(init)
 const useMapServices = () => {
   const route = useRoute();
   const router: Router = useRouter();
+
+  onBeforeMount(() => {
+    const userInfo = JSON.parse(
+      localStorage.getItem('userInfo')!
+    )
+    if (userInfo.role_id === 1) {
+      serviceItems.value = serviceItemsMock
+    } else {
+      serviceItems.value = serviceItemsMockAdmin
+    }
+  })
 
 
   const navigateTo = (service: IServiceItem): void => {

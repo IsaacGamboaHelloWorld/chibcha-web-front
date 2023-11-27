@@ -6,5 +6,11 @@ export const routesName = {
   mainInfo:{path:'plans-info',name:'plansInfo'},
   users:{path:'users',name:'users'},
   plans:{path:'plans',name:'plans'},
-  landing:{path:'/index',name:'index'}
+  landing:{path:'/index',name:'index'},
+  hositngAdmin:{path:'hostings-admin',name:'hostings-admin'},
+  TicketsAdmin:{path:'tickets',name:'tickets'},
+  domainsAdmin:{path:'domains',name:'domains'},
+
+
+
 };
