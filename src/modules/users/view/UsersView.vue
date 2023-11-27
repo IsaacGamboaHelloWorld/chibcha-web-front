@@ -3,4 +3,6 @@
 </template>
 <style scoped lang="sass" src="./UsersView.sass"></style>
 <script lang="ts" setup>
+import useUsers from '@/modules/users/composables/useUsers'
+const {} = useUsers()
 </script>

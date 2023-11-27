@@ -28,8 +28,29 @@ export const serviceItemsMock: IServiceItem[] = [
 
 export const serviceItemsMockAdmin: IServiceItem[] = [
   {
-    text: 'users',
+    text: 'Usuarios',
     icon: 'icon-icon-person',
+    isActive: false,
+    navigateTo: routesName.users.path,
+    name: routesName.users.name,
+  },
+  {
+    text: 'Hostings',
+    icon: 'icon-icon-star',
+    isActive: false,
+    navigateTo: routesName.users.path,
+    name: routesName.users.name,
+  },
+  {
+    text: 'Tickets',
+    icon: 'icon-icon-warning',
+    isActive: false,
+    navigateTo: routesName.users.path,
+    name: routesName.users.name,
+  },
+  {
+    text: 'Dominios',
+    icon: 'icon-icon-upload',
     isActive: false,
     navigateTo: routesName.users.path,
     name: routesName.users.name,
