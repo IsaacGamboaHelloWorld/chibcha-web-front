@@ -41,25 +41,6 @@
           icon="icon-icon-person"
           @action-icon="toggleProfileInfo()"
         />
-        <div v-if="profileInfoIsVisible">
-          <div class="profile-desktop">
-            <profile-window-component
-              class="profile-component"
-              v-if="profileInfoIsVisible"
-              @close="toggleProfileInfo"
-            />
-          </div>
-          <div class="profile-modal">
-            <VelocityModal type="custom">
-              <template #component>
-                <profile-window-component
-                  class="profile-component"
-                  @close="toggleProfileInfo"
-                />
-              </template>
-            </VelocityModal>
-          </div>
-        </div>
       </div>
       <velocity-button
         class="logout-button"
@@ -82,8 +63,6 @@
 import useHeader from '../../composables/useHeader';
 import VelocityIcon from '@/commons/velocity/atoms/velocityIcon/VelocityIcon.vue';
 import VelocityButton from '@/commons/velocity/atoms/velocityButton/VelocityButton.vue';
-import VelocityModal from '@/commons/velocity/atoms/velocityModal/VelocityModal.vue';
-import ProfileWindowComponent from './components/profileWindowComponent/ProfileWindowComponent.vue';
 
 const {
   toggleProfileInfo,
