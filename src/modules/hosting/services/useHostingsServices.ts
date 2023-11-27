@@ -21,12 +21,15 @@ const useHostingServices = () => {
     return data;
   };
 
-  const sendDomainCompany = async (body:IDomainRequest): Promise<any> => {
-    const { data } = await api.post<any>(endPoints.sendDomainRequest,body)
+  const sendDomainCompany = async (body: IDomainRequest): Promise<any> => {
+    const { data } = await api.post<any>(endPoints.sendDomainRequest, body)
     return data;
   };
 
-
+  const sendTicket = async (body: any): Promise<any> => {
+    const { data } = await api.post<any>(endPoints.sendTicket, body)
+    return data;
+  };
 
   const getPaymentPlans = async (): Promise<any> => {
     const { data } = await api.get<any>(endPoints.paymentsPlans)
@@ -62,7 +65,7 @@ const useHostingServices = () => {
     const { data } = await api.delete<any>(endPoints.hosting.delete + id);
     return data;
   };
-  return { updateHostin, createHosting, getHosting, deleteHostin, getOS, getPaymentPlans, getParameters, calculatePrice,getDomainCompany,sendDomainCompany }
+  return { updateHostin, createHosting, getHosting, deleteHostin, getOS, getPaymentPlans, getParameters, calculatePrice, getDomainCompany, sendDomainCompany, sendTicket }
 };
 
 export default useHostingServices;

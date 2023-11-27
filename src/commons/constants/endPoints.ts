@@ -18,6 +18,7 @@ export const endPoints = {
   paymentsPlans: "/payment-plans",
   domainCompany: "/domain_distribuitors",
   sendDomainRequest:"/domain_request",
+  sendTicket:'tickets',
   register: {
     user: '/users',
   }

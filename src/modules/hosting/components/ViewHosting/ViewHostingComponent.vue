@@ -1,15 +1,27 @@
 <template>
-  <velocity-modal type="custom" v-if="showModalTicket"> 
+  <velocity-modal type="custom" v-if="showModalTicket">
     <template #component>
-      <modal-ticket-component @close="()=>{showModalTicket = false}"></modal-ticket-component>
-    </template>
-  </velocity-modal>>
+      <modal-ticket-component
+        @close="
+          () => {
+            showModalTicket = false;
+          }
+        "
+      ></modal-ticket-component>
+    </template> </velocity-modal
+  >>
 
-  <velocity-modal type="custom"  v-if="showModalDomain"> 
+  <velocity-modal type="custom" v-if="showModalDomain">
     <template #component>
-      <modal-domain-component @close="()=>{showModalDomain = false}"></modal-domain-component>
-    </template>
-  </velocity-modal>>
+      <modal-domain-component
+        @close="
+          () => {
+            showModalDomain = false;
+          }
+        "
+      ></modal-domain-component>
+    </template> </velocity-modal
+  >>
 
   <velocity-modal v-if="isLoading" type="spinner" />
 
@@ -43,7 +55,12 @@
               size="small"
               text="Crear ticket de soporte"
               type="button"
-              @action-button="() => {showModalTicket = true}"
+              @action-button="
+                () => {
+                  selectedHost = hosting.id;
+                  showModalTicket = true;
+                }
+              "
             />
             <velocity-button
               icon="icon-icon-vibot"
@@ -51,9 +68,12 @@
               size="small"
               text="Solicitar Dominio"
               type="button"
-              @action-button="() => {
-                selectedHost = hosting.id
-                showModalDomain = true}"
+              @action-button="
+                () => {
+                  selectedHost = hosting.id;
+                  showModalDomain = true;
+                }
+              "
             />
             <velocity-button
               icon="icon-icon-edit"
@@ -97,14 +117,12 @@
               </div>
             </div>
           </div>
-          <hr v-if="hosting.domains.length>0" class="m-t-8 m-b-8">
-          <div v-if="hosting.domains.length>0">
-            <p class="vel-text-semibold vel-text-subtitle">
-              Dominios
-            </p>
+          <hr v-if="hosting.domains.length > 0" class="m-t-8 m-b-8" />
+          <div v-if="hosting.domains.length > 0">
+            <p class="vel-text-semibold vel-text-subtitle">Dominios</p>
             <div>
               <p v-for="domain in hosting.domains" :key="domain.id">
-              {{ domain.domain }}
+                {{ domain.domain }}
               </p>
             </div>
           </div>
@@ -131,6 +149,6 @@ const {
   editHosting,
   showModalDomain,
   showModalTicket,
-  selectedHost
+  selectedHost,
 } = useViewHosting();
 </script>
