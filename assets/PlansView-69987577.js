@@ -1,0 +1,1 @@
+import{j as e,o as _,e as n,b as t,g as o}from"./index-408dbe05.js";const a={},d={class:"titulo"};function r(s,c){return _(),n("h1",d,"compoennete card")}const p=e(a,[["render",r],["__scopeId","data-v-8bdd9c5d"]]),l=t({__name:"PlansView",setup(s){return(c,i)=>(_(),o(p))}});const u=e(l,[["__scopeId","data-v-70d37173"]]);export{u as default};

@@ -1,0 +1,1 @@
+import{b as e,e as n,o as s,f as _}from"./index-408dbe05.js";const t=_("h1",null,"hola desde landing",-1),a=[t],r=e({__name:"landing",setup(o){return(l,c)=>(s(),n("div",null,a))}});export{r as default};
