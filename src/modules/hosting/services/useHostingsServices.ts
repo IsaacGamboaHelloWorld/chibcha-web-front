@@ -1,6 +1,6 @@
 import { endPoints } from "@/commons/constants/endPoints";
 import api from "@/commons/globalService/api";
-import { IHosting, IHostingParameters, INewHosting } from "../interfaces/hostingInterfaces";
+import { IDomainRequest, IHosting, IHostingParameters, INewHosting } from "../interfaces/hostingInterfaces";
 
 const useHostingServices = () => {
   const getHosting = async (): Promise<IHosting[]> => {
@@ -15,6 +15,18 @@ const useHostingServices = () => {
     const { data } = await api.get<any>(endPoints.OS)
     return data;
   };
+
+  const getDomainCompany = async (): Promise<any> => {
+    const { data } = await api.get<any>(endPoints.domainCompany)
+    return data;
+  };
+
+  const sendDomainCompany = async (body:IDomainRequest): Promise<any> => {
+    const { data } = await api.post<any>(endPoints.sendDomainRequest,body)
+    return data;
+  };
+
+
 
   const getPaymentPlans = async (): Promise<any> => {
     const { data } = await api.get<any>(endPoints.paymentsPlans)
@@ -50,7 +62,7 @@ const useHostingServices = () => {
     const { data } = await api.delete<any>(endPoints.hosting.delete + id);
     return data;
   };
-  return { updateHostin, createHosting, getHosting, deleteHostin, getOS, getPaymentPlans, getParameters, calculatePrice }
+  return { updateHostin, createHosting, getHosting, deleteHostin, getOS, getPaymentPlans, getParameters, calculatePrice,getDomainCompany,sendDomainCompany }
 };
 
 export default useHostingServices;

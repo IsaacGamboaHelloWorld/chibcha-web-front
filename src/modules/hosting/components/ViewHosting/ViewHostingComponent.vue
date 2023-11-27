@@ -1,13 +1,13 @@
 <template>
   <velocity-modal type="custom" v-if="showModalTicket"> 
     <template #component>
-      <modal-ticket-component></modal-ticket-component>
+      <modal-ticket-component @close="()=>{showModalTicket = false}"></modal-ticket-component>
     </template>
   </velocity-modal>>
 
   <velocity-modal type="custom"  v-if="showModalDomain"> 
     <template #component>
-      <modal-domain-component></modal-domain-component>
+      <modal-domain-component @close="()=>{showModalDomain = false}"></modal-domain-component>
     </template>
   </velocity-modal>>
 
@@ -51,7 +51,9 @@
               size="small"
               text="Solicitar Dominio"
               type="button"
-              @action-button="() => {showModalDomain = true}"
+              @action-button="() => {
+                selectedHost = hosting.id
+                showModalDomain = true}"
             />
             <velocity-button
               icon="icon-icon-edit"
@@ -128,6 +130,7 @@ const {
   isLoading,
   editHosting,
   showModalDomain,
-  showModalTicket
+  showModalTicket,
+  selectedHost
 } = useViewHosting();
 </script>

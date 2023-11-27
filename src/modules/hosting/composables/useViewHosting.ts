@@ -14,7 +14,7 @@ const showModalTicket = ref<boolean>(false)
 const useViewHosting = () => {
 
     const hostingStore = useHostingStore()
-    const { currentStep, getHostings,idForEdit } = storeToRefs(hostingStore)
+    const { currentStep, getHostings, idForEdit, selectedHost } = storeToRefs(hostingStore)
     const { getHosting, deleteHostin } = useHostingServices()
 
     const { isFetching: isLoading, refetch } = useQuery(['get-Hostings'], getHosting, {
@@ -47,7 +47,7 @@ const useViewHosting = () => {
     }
 
 
-    return { currentStep, getHostings, deleteHostingMutation, isLoading, editHosting,showModalDomain,showModalTicket }
+    return { currentStep, getHostings, deleteHostingMutation, isLoading, editHosting, showModalDomain, showModalTicket, selectedHost }
 }
 
 export default useViewHosting

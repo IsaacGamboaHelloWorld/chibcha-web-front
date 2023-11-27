@@ -5,7 +5,7 @@ import { STEPS } from "../constants/steps";
 import { IHostPlan, IHosting, IHostingParameters, INewHosting, IOperativeSystem, IPaymentPlan } from "../interfaces/hostingInterfaces";
 
 export const useHostingStore = defineStore('HostingSotre', () => {
-
+    const selectedHost = ref<number>(0)
     const currentStep = ref<string>(STEPS.stepViewHostings)
     const hostingList = ref<IHosting[] | null>(null)
     const hostingParameters = ref<IHostingParameters | null>(null)
@@ -45,6 +45,7 @@ export const useHostingStore = defineStore('HostingSotre', () => {
         getHostPlans,
         getOSlist,
         setParameters,
-        formData
+        formData,
+        selectedHost
     };
 });

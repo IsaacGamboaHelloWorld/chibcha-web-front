@@ -63,3 +63,10 @@ export interface IHostingParameters {
   hostPlans: IHostPlan[];
   paymentPlans: IPaymentPlan[];
 }
+
+export interface IDomainRequest {
+  host_id:number;
+  domain_distribuitor_id:number;
+  domain:string;
+  state:string
+}

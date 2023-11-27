@@ -16,6 +16,8 @@ export const endPoints = {
   },
   OS: "/operative-systems",
   paymentsPlans: "/payment-plans",
+  domainCompany: "/domain_distribuitors",
+  sendDomainRequest:"/domain_request",
   register: {
     user: '/users',
   }
