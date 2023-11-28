@@ -14,7 +14,7 @@ const useDomainsAdmin = () => {
                 console.log(error)
             },
         })
-        const updateTicketMutation = useMutation(['spinner'], updateDomains,
+        const updateDomainMutation = useMutation(['spinner'], updateDomains,
         {
             onSuccess: (data) => {
                 refetch()
@@ -26,7 +26,7 @@ const useDomainsAdmin = () => {
         })
 
 
-    return {DomainsList,updateTicketMutation}
+    return {DomainsList,updateDomainMutation}
 }
 
 export default useDomainsAdmin
