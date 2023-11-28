@@ -1,0 +1,96 @@
+.contianer-landing
+    .container-first
+        min-width: 100vh
+        height: 100vh
+        position: relative
+        background-repeat: repeat
+        background-size: cover
+        background-position: center
+        background-image: url('/img/14b2d09e-0c4c-4f03-8185-2f7c1fcca3a5.webp')
+        .overlay-index
+            background: rgb(0,0,0)
+            background: linear-gradient(16deg, rgba(0,0,0,1) 2%, rgba(253,187,45,0) 100%)
+            width: 100%
+            height: 100%
+            position: absolute
+            z-index: 1
+            box-sizing: border-box
+            top: 0
+            left: 0
+        .container-info
+            position: absolute
+            top: 30%
+            left: 10%
+            transform: translate(-10%, -30%)
+            width: 60%
+            height: 100px
+            z-index: 2
+            >.description
+                font-size: 20px
+                color: white
+                text-align: left
+
+            >.title
+                font-size: 100px
+                color: white
+                text-align: left
+
+    .container-second
+        background: white
+        padding: 100px 0px
+        .container-title
+            text-align: center
+            p
+                font-size: 50px
+        .min-escudo
+            margin-top: 50px
+            width: 100%
+            text-align: center
+            >img
+                width: 80px
+        .container-images
+            display: flex
+            flex-direction: row
+            justify-content: space-around
+            align-items: center
+            margin-top: 50px
+            flex-wrap: wrap
+            .container-circle
+                div,p
+                    text-align: center
+            .circle
+                width: 200px
+                height: 200px
+                border: 5px solid black
+                border-radius: 200px
+                &.isok
+                    background-size: cover
+                    background-position: 0px -20px
+                    background-image: url('/img/isok.webp')
+                &.vi
+                    background-size: cover
+                    background-position: 0px 0px
+                    background-image: url('/img/vi.webp')
+                &.roa
+                    background-size: cover
+                    background-position: 0px -20px
+                    background-image: url('/img/angel.webp')
+                &.migue
+                    background-size: cover
+                    background-position: 0px 0px
+                    background-image: url('/img/migue.webp')
+                &.jorge
+                    background-size: cover
+                    background-position: 0px -20px
+                    background-image: url('/img/jorge.webp')
+    .container-Third
+        background: black
+        padding: 100px 0px
+        .container-title
+            text-align: center
+            p
+                font-size: 50px
+                color: $bocc-color-primary-300
+
+
+
