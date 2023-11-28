@@ -48,7 +48,6 @@
           }
         "
       />
-      {{ formData.host_plan_id }}
       <velocity-dropdown
         :list="getPaymentPlans"
         label="Metodo de pago"

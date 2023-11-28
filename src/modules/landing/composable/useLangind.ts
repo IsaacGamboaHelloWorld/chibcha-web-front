@@ -1,15 +1,16 @@
-import { useAuthStore } from "@/modules/login/store/useAuthStore";
-import { storeToRefs } from "pinia";
+import { routesName } from '@/commons/constants/routes';
+import { Router, useRouter } from 'vue-router';
+
 
 
 const useLanding = ()=>{
-    const authStore = useAuthStore();
+  const router: Router = useRouter();
 
-    const {
-      currentStep,
-    } = storeToRefs(authStore);
+    const navigateToLogin = () => {
+      router.push(routesName.auth.path)
+    }
     return{
-        currentStep
+      navigateToLogin
     }
 }
 

@@ -16,7 +16,7 @@
           size="large"
           text="Iniciar experiencia"
           type="button"
-          @action-button="() => editHosting(hosting)"
+          @action-button="() => navigateToLogin()"
         />
       </div>
     </div>
@@ -53,10 +53,70 @@
 
     <div class="container-Third">
       <div class="container-title">
-        <p>Nuestros Planes</p>
+        <p class="m-b-40">Nuestros Planes</p>
       </div>
-
-      
+      <div class="container-cards">
+        <CardComponent
+          planName="Chibcha-Plata"
+          :features="[
+            'ISO 9001',
+            'Almacenamiento SSD',
+            'Certificado SSL',
+            '10 gb',
+            '10 correos',
+            '1 DB',
+            '1 Web Site',
+          ]"
+          :payments="[
+            'Mes: $23600',
+            'Trimestre: $65000',
+            'Semestre: $125000',
+            'Año: $236000',
+          ]"
+          icon="/img/LogosChibchaWeb03.svg"
+          @action-button="()=>navigateToLogin()"
+        />
+        <CardComponent
+          planName="Chibcha-Oro"
+          :features="[
+            'ISO 9001',
+            'Almacenamiento SSD',
+            'Certificado SSL',
+            '20 gb',
+            '20 correos',
+            '10 DB',
+            '2 Web Sites',
+          ]"
+          :payments="[
+            'Mes: $35200',
+            'Trimestre: $90000',
+            'Semestre: $185000',
+            'Año: $358000',
+          ]"
+          icon="/img/LogosChibchaWeb05.svg"
+          @action-button="()=>navigateToLogin()"
+        />
+        <CardComponent
+          planName="Chibcha-Platino"
+          :features="[
+            'ISO 9001',
+            'Almacenamiento SSD',
+            'Certificado SSL',
+            '60 gb',
+            '150 correos',
+            'DB Ilimitadas',
+            '10 Web Sites',
+          ]"
+          :payments="[
+            'Mes: $63300',
+            'Trimestre: $175000 ',
+            'Semestre: $345000',
+            'Año: $663000',
+          ]"
+          icon="/img/LogosChibchaWeb01.svg"
+          @action-button="()=>navigateToLogin()"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -64,5 +124,6 @@
 <script setup lang="ts">
 import useLanding from "../composable/useLangind";
 import VelocityButton from "@/commons/velocity/atoms/velocityButton/VelocityButton.vue";
-const {} = useLanding();
+import CardComponent from "@/modules/planes/components/cardComponent/CardComponent.vue";
+const { navigateToLogin } = useLanding();
 </script>

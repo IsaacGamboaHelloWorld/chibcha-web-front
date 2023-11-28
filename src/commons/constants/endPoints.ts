@@ -26,6 +26,8 @@ export const endPoints = {
     users: '/users',
     hostings: '/host-all',
     tickets:'/tickets_all',
+    ticketsUpdate:'/tickets',
     domains: '/domain_request_all',
+    domainsUpdate: '/domain_request',
   }
 };

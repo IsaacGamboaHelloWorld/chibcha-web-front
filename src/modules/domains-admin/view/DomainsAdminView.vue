@@ -20,35 +20,45 @@
           <p class="vel-text-semibold vel-text-small">Estado</p>
         </div>
 
+        <div class="vel-table_col">
+          <p class="vel-text-semibold vel-text-small">Accion</p>
+        </div>
+
       </div>
 
-      <div class="vel-table_row" v-for="hosting in DomainsList" :key="hosting.id">
+      <div class="vel-table_row" v-for="domain in DomainsList" :key="domain.id">
         <div class="row w-100">
           <div class="vel-table_col">
             <p class="vel-text-small color-neutral">
-              {{ hosting.name }}
+              {{ domain.name }}
             </p>
           </div>
           <div class="vel-table_col">
             <p class="vel-text-small color-neutral">
-              {{ hosting.ip }}
+              {{ domain.ip }}
             </p>
           </div>
      
           <div class="vel-table_col">
             <p class="vel-text-small color-neutral">
-              {{ hosting.domain }}
+              {{ domain.domain }}
             </p>
           </div>
           <div class="vel-table_col">
             <p class="vel-text-small color-neutral">
-              {{ hosting.dm_name }}
+              {{ domain.dm_name }}
             </p>
           </div>
           <div class="vel-table_col">
             <p class="vel-text-small color-neutral">
-              {{ hosting.state }}
+              {{ domain.state }}
             </p>
+          </div>
+          <div class="vel-table_col">
+           <div class="w-100 container-icons">
+            <i @click="()=>updateDomainMutation.mutate({id:domain.domain_id,status:'activo'})" class="aprove icon-icon-check"></i>
+            <i @click="()=>updateDomainMutation.mutate({id:domain.domain_id,status:'rechazado'})" class="cancel icon-icon-close"></i>
+           </div>
           </div>
         </div>
       </div>
@@ -60,5 +70,5 @@
 import useDomainsAdmin from '../composables/useDomainsAdmin';
 
 
-const {DomainsList} = useDomainsAdmin()
+const {DomainsList,updateDomainMutation} = useDomainsAdmin()
 </script>

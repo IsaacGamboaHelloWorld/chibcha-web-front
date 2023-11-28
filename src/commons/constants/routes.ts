@@ -10,7 +10,4 @@ export const routesName = {
   hositngAdmin:{path:'hostings-admin',name:'hostings-admin'},
   TicketsAdmin:{path:'tickets',name:'tickets'},
   domainsAdmin:{path:'domains',name:'domains'},
-
-
-
 };

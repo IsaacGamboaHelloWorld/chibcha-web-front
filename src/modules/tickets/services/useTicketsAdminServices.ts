@@ -8,9 +8,13 @@ const useTicketsAdminServices = () => {
     const { data } = await api.get<any>(endPoints.admin.tickets)
     return data;
   };
-
+  const updateTicket = async (body:{id:number; status:string}): Promise<any> => {
+    const { data } = await api.put<any>(endPoints.admin.ticketsUpdate,body)
+    return data;
+  };
   return{
-    getTickets
+    getTickets,
+    updateTicket
   }
 };
 

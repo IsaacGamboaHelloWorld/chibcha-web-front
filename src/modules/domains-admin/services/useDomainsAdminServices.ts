@@ -9,8 +9,14 @@ const useDomainsAdminServices = () => {
     return data;
   };
 
+  const updateDomains = async (body:{id:number; status:string}): Promise<any> => {
+    const { data } = await api.put<any>(endPoints.admin.domainsUpdate,body)
+    return data;
+  };
+
   return{
-    getDomains
+    getDomains,
+    updateDomains
   }
 };
 

@@ -27,7 +27,7 @@ const useLogin = () => {
 
   const getVersion = computed<string>(() => packageInfo.version);
 
-  const userLoginMutation = useMutation([''], userLogin, {
+  const userLoginMutation = useMutation(['spinner'], userLogin, {
     onSuccess: (data) => {
       localStorage.setItem('token', data.token)
       localStorage.setItem('userInfo', JSON.stringify(data.infoUser));

@@ -1,8 +1,8 @@
 <template>
   <div class="card">
     <div class="card-header">
-      <img :src="icon" alt="Icon" class="icon" />
-      <h2>{{ planName }}</h2>
+      <img :src="props.icon" alt="Icon" class="icon" />
+      <h2>{{ props.planName }}</h2>
     </div>
     <div class="card-body">
       <ul class="feature-list">
@@ -19,27 +19,26 @@
       </ul>
     </div>
     <div class="card-footer">
-      <button class="btn-subscribe" @click="subscribe">Suscribrse</button>
+      <button class="btn-subscribe" @click="()=>emits('actionButton')">Suscribrse</button>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    planName: String,
-    features: Array,
-    payments: Array,
-    icon: String,
-  },
-  methods: {
-    subscribe() {
-      // Add your subscribe logic here
-      console.log('Subscribed!');
-    },
-  },
-};
-</script>
-
 <style scoped lang="css" src="./CardComponent.css"></style>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+interface Props {
+  planName: string;
+  features: any[];
+  payments: any[];
+  icon: string;
+}
+
+interface IEmits {
+  (e: 'actionButton'): void;
+ 
+}
+
+const emits = defineEmits<IEmits>();
+const props = defineProps<Props>()
+
+</script>

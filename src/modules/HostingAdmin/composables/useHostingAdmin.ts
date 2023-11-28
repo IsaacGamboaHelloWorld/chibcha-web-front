@@ -3,9 +3,9 @@ import useUsersServices from "../services/useHostingAdminServices";
 import { ref } from "vue";
 import useHostingAdminServices from "../services/useHostingAdminServices";
 
+const hostinList= ref<any>()
 const useHostingAdmin = () => {
 
-    const hostinList= ref<any>()
     const { getHosting } = useHostingAdminServices()
     const { } = useQuery(['hostings-admin'], getHosting,
         {

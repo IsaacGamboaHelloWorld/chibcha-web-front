@@ -2,10 +2,9 @@ import { useQuery } from "@tanstack/vue-query";
 import useUsersServices from "../services/useUsersServices";
 import { ref } from "vue";
 import { IUser } from "../interfaces/usersInterface";
-
+const users = ref<IUser[]>()
 const useUsers = () => {
 
-    const users = ref<IUser[]>()
     const { getUsers } = useUsersServices()
     const { } = useQuery(['users'], getUsers,
         {

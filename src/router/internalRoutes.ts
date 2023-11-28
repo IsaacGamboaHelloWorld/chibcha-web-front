@@ -40,7 +40,7 @@ const internalRoutes: RouteRecordRaw = {
     {
       path: routesName.domainsAdmin.path,
       name: routesName.domainsAdmin.name,
-      component: () => import('@/modules/tickets - copia/view/DomainsAdminView.vue'),
+      component: () => import('@/modules/domains-admin/view/DomainsAdminView.vue'),
     },
     // {
     //   path: routesName.users.path,
